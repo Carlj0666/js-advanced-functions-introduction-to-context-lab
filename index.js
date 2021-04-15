@@ -120,8 +120,9 @@ let hoursWorkedOnDate = function(employee) {
   // let hourOut = dateTimeOut.hour
   // hourIn = hourIn / 100
   // hourOut = hourOut / 100
-  let hoursWorked = timeInFunc - timeOutFunc
   console.log(timeInFunc)
+  let hoursWorked = timeInFunc - timeOutFunc
+ 
   return hoursWorked
 }
 
