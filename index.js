@@ -97,19 +97,35 @@ let createTimeOutEvent = function(employee, dateTime) {
 //   return employee
 // }
 
-let hoursWorkedOnDate = function(employee) {
-  let dateTimeIn = employee.timeInEvents
+let hoursWorkedOnDate = function(employee, dateInQuestion) {
   
-  let timeInFunc = dateTimeIn.forEach(function(shiftIn) {
-    console.log(shiftIn.hour)
-    return shiftIn.hour
-  })
 
-  let dateTimeOut = employee.timeOutEvents
-  let timeOutFunc = dateTimeOut.forEach(function(shiftOut) {
-    console.log(shiftOut.hour)
-    return shiftOut.hour
-  })
+  let dateIn = employee.timeInEvents[0].date
+  if (dateInQuestion === dateIn) {
+    let timeInFunc = dateTimeIn.map(function(shiftIn) {
+     return shiftIn.hour
+    })
+    let timeOutFunc = dateTimeOut.map(function(shiftOut) {
+      return shiftOut.hour
+    })
+    timeInFunc = timeInFunc / 100
+    timeOutFunc = timeOutFunc / 100
+    return hoursWorked = timeInFunc - timeOutFunc
+  }
+  return hoursWorked
+  
+  
+  
+  // let timeInFunc = dateTimeIn.forEach(function(shiftIn) {
+  //   console.log(shiftIn.hour)
+  //   return shiftIn.hour
+  // })
+
+  // let dateTimeOut = employee.timeOutEvents
+  // let timeOutFunc = dateTimeOut.forEach(function(shiftOut) {
+  //   console.log(shiftOut.hour)
+  //   return shiftOut.hour
+  // })
 
   // console.log(dateTimeIn)
   // console.log(dateTimeOut)
@@ -120,10 +136,12 @@ let hoursWorkedOnDate = function(employee) {
   // let hourOut = dateTimeOut.hour
   // hourIn = hourIn / 100
   // hourOut = hourOut / 100
-  console.log(timeInFunc)
-  let hoursWorked = timeInFunc - timeOutFunc
+  // console.log(timeInFunc)
+  // timeInFunc = timeInFunc / 100
+  // timeOutFunc = timeOutFunc / 100
+  // let hoursWorked = timeInFunc - timeOutFunc
  
-  return hoursWorked
+  // return hoursWorked
 }
 
 let wagesEarnedOnDate = function(employee) {
