@@ -101,17 +101,26 @@ let hoursWorkedOnDate = function(employee, dateInQuestion) {
   
 
   let dateIn = employee.timeInEvents[0].date
-  if (dateInQuestion === dateIn) {
-    let timeInFunc = dateTimeIn.map(function(shiftIn) {
+  console.log(dateIn)
+  console.log(dateInQuestion)
+  if (dateInQuestion == dateIn) {
+    let dateTimeIn = employee.timeInEvents.forEach(function(shiftIn) {
+      console.log(shiftIn.hour)
      return shiftIn.hour
+     
     })
-    let timeOutFunc = dateTimeOut.map(function(shiftOut) {
+    let dateTimeOut = employee.timeOutEvents.forEach(function(shiftOut) {
+      console.log(shiftOut.hour)
       return shiftOut.hour
     })
-    timeInFunc = timeInFunc / 100
-    timeOutFunc = timeOutFunc / 100
-    return hoursWorked = timeInFunc - timeOutFunc
+    
+    dateTimeIn = dateTimeIn / 100 // tried moving math into forEach loops
+    dateTimeOut = dateTimeOut / 100
+    let hoursWorked = dateTimeIn - dateTimeOut
+    console.log(hoursWorked)
+    return hoursWorked
   }
+  console.log(hoursWorked)
   return hoursWorked
   
   
