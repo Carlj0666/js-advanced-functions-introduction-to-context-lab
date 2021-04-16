@@ -106,12 +106,12 @@ let hoursWorkedOnDate = function(employee, dateInQuestion) {
   if (dateInQuestion == dateIn) {
     let dateTimeIn = employee.timeInEvents.forEach(function(shiftIn) {
       console.log(shiftIn.hour)
-     return shiftIn.hour
+     return Math.abs(shiftIn.hour)
      
     })
     let dateTimeOut = employee.timeOutEvents.forEach(function(shiftOut) {
       console.log(shiftOut.hour)
-      return shiftOut.hour
+      return Math.abs(shiftOut.hour)
     })
     
     dateTimeIn = dateTimeIn / 100 // tried moving math into forEach loops
